@@ -23,11 +23,11 @@ export default function TextForm(props) {
     //setText("new text"); //correct way to change the value of text
   return (
     <>
-    <div className="container">
+    <div className="container" style={{backgroundColor:props.mode==='dark'?'white':'black'}}>
         <h1>{props.heading}</h1>
  <div className="mb-3"> 
 
-    <textarea className="form-control"value = {text} onChange={handleonchange} id="myBox" rows="8"></textarea>
+    <textarea className="form-control"value = {text} style={{backgroundColor:props.mode==='light'?'grey':'white'}}onChange={handleonchange} id="myBox" rows="8"></textarea>
     
     </div> 
     <button className="btn btn-primary mx-2" onClick={handleUpClick}>Convert to uppercase</button>
@@ -36,12 +36,12 @@ export default function TextForm(props) {
 
   </div>
 
-  <div className="container my-3"> 
+  <div className="container my-3 style={{backgroundColor:props.mode==='light'?'grey':'white'}}"> 
     <h2>Your text summary is</h2>
     <p>{text.split(" ").length} words and {text.length} characters</p>
     <p>{0.008*text.split(" ").length} minutes can be taken to read</p>
     <h2> Preview</h2>
-    <p>{text}</p> 
+    <p>{text.length>0?text:"Enter something to preview"}</p> 
 
 
   </div>
